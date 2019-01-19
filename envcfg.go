@@ -34,7 +34,7 @@
 // A limited number of field types are supported, but they should be enough for most cases.
 // Nested structures are supported, just mark nested fields with `env` tag as usual
 // (no special syntax for .env file required). To load .env file from a different location or
-// with a different name use LoadFile() function.
+// with a different name use LoadFile().
 package envcfg
 
 import (
@@ -221,7 +221,7 @@ func parseStruct(st *reflect.Value) []*structField {
 	return fields
 }
 
-// Loads values from the specified file and OS environment variables to a structure
+// LoadFile loads values from the specified file and OS environment variables to a structure
 // passed by the reference to the function.
 func LoadFile(filename string, to interface{}) error {
 	value := reflect.ValueOf(to)
@@ -252,7 +252,7 @@ func LoadFile(filename string, to interface{}) error {
 	return nil
 }
 
-// Loads values from .env file located in the current working directory and
+// Load loads values from .env file located in the current working directory and
 // from OS environment variables to a structure passed by the reference to the function.
 func Load(to interface{}) error {
 	dir, err := os.Getwd()
